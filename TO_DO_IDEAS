@@ -4,6 +4,9 @@
   - Données qu'on veut : date mise en vente, prix, type... ? EVERYTHING ! Identifier variables voulues, variables communes
   - Penser à collecter ok maps
   - Comment merger différents sites ?
+  - Terrains à bâtir ?
+  
+ https://docs.google.com/document/d/1VbQlBBeQW9jCXNs_zTQ9vKxIA98yAnGEzPghZ5jW6vo/edit?usp=sharing
   
 
 
@@ -20,10 +23,12 @@
   
 
 
-4) Conclusions
+4) Questions de recherches possibles
   - Demander au logiciel si une maison est une bonne affaire  => utilité des analyses (FEATURE)
   - Avec données => arriver à une estimation de prix          => utilité des analyses (FEATURE)
   - Avec des données incomplètes, être dirigé vers ce qui va  => utilité des analyses (FEATURE)
+  - Bien resté longtemps/court => vente rapide, trop peu cher ? Caractéristiques des maisons qui se vendent rapidement
+  - Dans la tête d'un promotteur : qu'est-ce qui donne le plus de valeur ? Où trouver un terrain à bâtir et qu'en faire (prix des TERRAINS à bâtir) Quels critères selon quel endroit
 
 
 5) Machine learning
@@ -31,6 +36,8 @@ To come
 
 
 6) IA
+
+7) braquer une banque (sponsorisé pas BeCode)
 
 
 
