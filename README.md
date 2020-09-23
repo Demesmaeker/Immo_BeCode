@@ -2,7 +2,7 @@
 
 ### Links:
  - Trello (Task & **TODO**): https://trello.com/invite/b/UPmmjZrz/8a246638fa887895a9e62dee1af81a61/immo-becode
- - Google doc (Variables to scrape)=  https://docs.google.com/document/d/1VbQlBBeQW9jCXNs_zTQ9vKxIA98yAnGEzPghZ5jW6vo/edit?usp=sharing
+ - Google doc (Variables to scrape):  https://docs.google.com/document/d/1VbQlBBeQW9jCXNs_zTQ9vKxIA98yAnGEzPghZ5jW6vo/edit?usp=sharing
 
 ## Plan
 ### 1. Data's collecting:
@@ -10,7 +10,7 @@
   #### Where ?
   [Immoweb](https://www.immoweb.be/fr)/[Zimmo](https://www.zimmo.be/fr/)/[Immo.vlan](https://immo.vlan.be/fr)
   
-  ### Which variables ?
+  #### Which variables ?
   * Données qu'on veut : date mise en vente, prix, type... ? EVERYTHING ! Identifier variables voulues, variables communes
   * Penser à collecter ok maps
   * Terrains à bâtir ?
