@@ -5,6 +5,9 @@
  - Google doc (Variables to scrape):  https://docs.google.com/document/d/1VbQlBBeQW9jCXNs_zTQ9vKxIA98yAnGEzPghZ5jW6vo/edit?usp=sharing
 
 ## Plan
+
+![https://raw.githubusercontent.com/Demesmaeker/Immo_BeCode/master/plan.svg](https://raw.githubusercontent.com/Demesmaeker/Immo_BeCode/master/plan.svg)
+
 ### 1. Data's collecting:
 
   #### Where ?
