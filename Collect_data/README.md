@@ -48,7 +48,9 @@ Pré-requis : Définir une class contenant comme variable chaque donnée que l'o
 |  |  |   |
 
 Chaque variable de type string aura "No value found" par defaut
+
 Chaque variable de type int aura -1 par defaut
+
 Chaque variable de type date aura 01/01/0001 par defaut
 
 ## A) En scrappant des sites web
