@@ -6,6 +6,8 @@
 
 ## Plan
 ![https://github.com/Demesmaeker/Immo_BeCode/blob/master/plan%20d'ensemble.svg](https://github.com/Demesmaeker/Immo_BeCode/blob/master/plan%20d'ensemble.svg)
+![https://github.com/Demesmaeker/Immo_BeCode/blob/master/Collect%20Data.svg](https://github.com/Demesmaeker/Immo_BeCode/blob/master/Collect%20Data.svg)
+
 ![https://raw.githubusercontent.com/Demesmaeker/Immo_BeCode/master/plan.svg](https://raw.githubusercontent.com/Demesmaeker/Immo_BeCode/master/plan.svg)
 
 ### 1. Data's collecting:
