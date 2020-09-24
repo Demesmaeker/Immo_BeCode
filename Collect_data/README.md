@@ -23,7 +23,7 @@ Pré-requis : Définir une class contenant comme variable chaque donnée que l'o
 | ------------- | ------------- |------------- |------------- |
 | Le prix  | Année de construction |  Surface du salon | date de creation du bien sur le site web
 | La superficie du bien  | Parkings extérieurs  |   |date d’expiration de la page
-| État du batiment | Largeur de la façade | Nombre de sale de bain  | date d'enregistrement de la donnée
+| État du bien | Largeur de la façade | Nombre de sale de bain  | date d'enregistrement de la donnée
 | Nombre de chambre | Type de cuisine |  Nombre de toilettes |
 | Code postal | Nombre de façade | Surface des chambres   |
 | Jardin (oui/non) | Surface du jardin  |  Nombre de buanderie |
@@ -46,6 +46,10 @@ Pré-requis : Définir une class contenant comme variable chaque donnée que l'o
 |  |  |   |
 |  |  |   |
 |  |  |   |
+
+Chaque variable de type string aura "No value found" par defaut
+Chaque variable de type int aura -1 par defaut
+Chaque variable de type date aura 01/01/0001 par defaut
 
 ## A) En scrappant des sites web
 
