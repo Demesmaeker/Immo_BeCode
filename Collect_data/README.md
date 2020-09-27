@@ -1,14 +1,11 @@
 
-Pour tout ce qui touche à la collecte de donnée
-
 # Objectif de la collecte de données : 
 
   1) Collecter autant de donnée que possible sur le marché Belge de la vente de maison / appartement
   2) Mettre en place une routine pour mettre à jour les données disponibles
+  3) Vérifier qu'un même lien n'a pas été utilisé plusieurs fois
 
-
-
-
+=> Sortir un fichier CSV contenant les données non triée (le plus brut possible)
 
 ## plan
 
