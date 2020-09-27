@@ -3,7 +3,6 @@
 
   1) Collecter autant de donnée que possible sur le marché Belge de la vente de maison / appartement
   2) Mettre en place une routine pour mettre à jour les données disponibles
-  3) Vérifier qu'un même lien n'a pas été utilisé plusieurs fois
 
 => Sortir un fichier CSV contenant les données non triée (le plus brut possible)
 
@@ -65,6 +64,13 @@ Rappel des étapes :
 
 A discuter. Est-ce qu'on va passer du temps la dessus ?
 L'un n'empêche pas l'autre.
+
+# Routine pour collecter les données :
+
+Comment faire ?
+A quel fréquence ?
+
+
 
 brouillon 
 
