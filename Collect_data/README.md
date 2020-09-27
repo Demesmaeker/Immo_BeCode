@@ -14,35 +14,31 @@
 
 # Collecter les données :
 
-Pré-requis : Définir une class contenant comme variable chaque donnée que l'on peut trouver sur un bien
+Pré-requis : sélectionner les données que l'ont veut récupérer.
 
-| Données minimum  | Données optionnelles | Données descriptives | Données temporelles |
-| ------------- | ------------- |------------- |------------- |
-| Le prix  | Année de construction |  Surface du salon | date de creation du bien sur le site web
-| La superficie du bien  | Parkings extérieurs  |   |date d’expiration de la page
-| État du bien | Largeur de la façade | Nombre de sale de bain  | date d'enregistrement de la donnée
-| Nombre de chambre | Type de cuisine |  Nombre de toilettes |
-| Code postal | Nombre de façade | Surface des chambres   |
-| Jardin (oui/non) | Surface du jardin  |  Nombre de buanderie |
-| Terrace (oui/non) | Surface de la terrasse | Surface du bureau  |
-|  | Rue & Numéro | Nombre de bureau  |
-|  | garage | Surface du grenier  |
-|  | surface du garage  | Raccordement à l'égout  |
-|  |  | Eau, gaz & électricité |
-|  |  |  Orientation de la terrasse |
-|  |  | Consommation d'énergie primaire (PEB)  |
-|  |  | Emission CO²  |
-|  |  | Consommation théorique totale d'énergie primaire  |
-|  |  | Type de chauffage  |
-|  |  | Double vitrage  |
-|  |  | Type de zone inondable	  |
-|  |  |  grenier |
-|  |  | veranda  |
-|  |  | nb parkings (sans précision intérieur/extérieur)  |
-|  |  |   |
-|  |  |   |
-|  |  |   |
-|  |  |   |
+| Données de base  | | Localisation|| Description du bien || Énergie| 
+| ------------- |-------------|-------------|-------------|------------- |-------------|-------------| 
+|Le prix|| Code postal|| Largeur de la façade ||Raccordement à l'égout| 
+|Type de bien|| Nom de la rue || Nbr de salle de bain ||Eau, gaz & électricité| 
+|La superficie du bien|| Numéro de la maison|| Nbr de toilettes ||Valeur du PEB| 
+|État du bien|| Nom de la ville|| Nbr de bureau||Emission CO²| 
+|Jardin (oui/non)|| Province|| Grenier (oui/non)||Type de chauffage| 
+|Superficie du jardin|| Région|| Superficie du grenier ||Double vitrage| 
+|Terrace (oui/non)|||| Superficie des chambres||| 
+|Superficie de la terrace|||| Nbr de cave||| 
+|Nombre de chambre||||Superficie de la cave ||| 
+|Orientation de la terrasse||||Veranda (oui/non)|
+| Année de construction | |||Superficie de la veranda|
+
+| Suivit et actualisation des données |
+| ------------- |
+| Url de l'annonce |
+| Date de création de l'annonce |
+| Date d'expiration de l'annonce |
+| Date d'enregistrement des données  |
+
+Vincent : je pense qu'il faut donner une valeur par défaut différent de None ou 0 pour différencier une donnée non trouvée d'une donnée.
+Qu'en pensez-vous ?
 
 Chaque variable de type string aura "No value found" par defaut
 
@@ -50,9 +46,20 @@ Chaque variable de type int aura -1 par defaut
 
 Chaque variable de type date aura 01/01/0001 par defaut
 
+https://docs.google.com/document/d/1VbQlBBeQW9jCXNs_zTQ9vKxIA98yAnGEzPghZ5jW6vo/edit?usp=sharing
+
 ## A) En scrappant des sites web
 
 Mise en commun des 3 projets. Quels étaient les points fort de chacun ?
+
+  - Immo/Zimmo/immo.vlan
+
+Rappel des étapes :
+
+- Liste d'url de bien en vente
+- Scrapper la page d'un bien
+- Vérifier que l'url n'a pas déjà été scrappée ( Comment savoir s'il y a eu un update des données ?)
+- Scrapper toutes les url
 
 ## B) En trouvant des API
 
@@ -61,11 +68,6 @@ L'un n'empêche pas l'autre.
 
 brouillon 
 
-  - Immo/Zimmo/immo.vlan
-  - recupération régulière des nouvelles données pour faire des analyses dans le temps
-  - Données qu'on veut : date mise en vente, prix, type... ? EVERYTHING ! Identifier variables voulues, variables communes
-  - Penser à collecter ok maps
-  - Comment merger différents sites ?
   - Terrains à bâtir ?
   
- https://docs.google.com/document/d/1VbQlBBeQW9jCXNs_zTQ9vKxIA98yAnGEzPghZ5jW6vo/edit?usp=sharing
+ 
