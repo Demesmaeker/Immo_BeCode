@@ -39,7 +39,7 @@ Pré-requis : sélectionner les données que l'ont veut récupérer.
 Vincent : je pense qu'il faut donner une valeur par défaut différent de None ou 0 pour différencier une donnée non trouvée d'une donnée.
 Qu'en pensez-vous ?
 
-Chaque variable de type string aura "No value found" par defaut
+Chaque variable de type string aura "Not found" par defaut
 
 Chaque variable de type int aura -1 par defaut
 

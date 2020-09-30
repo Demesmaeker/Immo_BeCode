@@ -35,6 +35,7 @@ class estate():
 
         """ Données de Localisation """
 
+        self.locality =  "Not found"
         self.country = "Not found"
         self.region = "Not found"
         self.province = "Not found"
