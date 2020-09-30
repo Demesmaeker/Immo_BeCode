@@ -98,11 +98,3 @@ class house():
         self.number_of_facades = "No Value found"
         self.swimming_pool = "No Value found"
 
-
-    def __str__(self):
-        return " " +self.open_fire + " " + self.terrace
-
-    def nbr_donne_trouvee(self):
-        pass
-        for i in vars(self):
-            print(i)
