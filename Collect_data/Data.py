@@ -1,17 +1,49 @@
-# pour éviter d'ouvrir fermer le fichier on met le tout en mémoire. Est-ce un gain de temps ?
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 
-class data():
+import time
+import pandas as pd
+import os
 
-    def __init__(self):
-        self.immoweb_file = 'immoweb.csv'
 
-        self.immoweb_list = []
+######################################
+#     Get the urls of each page      #
+######################################
 
-    def load_db(self):
-        pass
+base_url = "https://www.immoweb.be/"
 
-    def save_db(self):
-        pass
+def init_webdriver(is_firefox: bool = False) -> webdriver:
+    if is_firefox:
+        profile = webdriver.FirefoxProfile()
+        # disable pictures
+        profile.set_preference('permissions.default.image', 2)
+        driver = webdriver.Firefox(firefox_profile=profile)
+    else:
+        options = webdriver.ChromeOptions()
+        # hide pictures
+        options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})
+        driver = webdriver.Chrome(options=options)
+    return driver
+
+
+# utile pour plus tard
+
+# class data():
+#
+#     def __init__(self):
+#         self.immoweb_file = 'immoweb.csv'
+#
+#         self.immoweb_list = []
+#
+#     def load_db(self):
+#         pass
+#
+#     def save_db(self):
+#         pass
 
 
 class property():
