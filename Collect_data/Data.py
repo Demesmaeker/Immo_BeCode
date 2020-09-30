@@ -3,7 +3,6 @@
 class data():
 
     def __init__(self):
-
         self.immoweb_file = 'immoweb.csv'
 
         self.immoweb_list = []
@@ -15,7 +14,7 @@ class data():
         pass
 
 
-class house():
+class property():
 
     def __init__(self):
         """Constructor our class"""
@@ -30,10 +29,7 @@ class house():
         self.surface_of_the_land = "No Value found"
         self.terrace_area = "No Value found"
 
-
         """ Données de Localisation """
-
-
 
         """ Description du bien """
         self.construction_year = "No Value found"
@@ -60,7 +56,7 @@ class house():
         self.sewer_network = "No Value found"  # connection aux égouts
 
         """ Energie """
-        self.energy_consumption = "No Value found" # kwh/m²
+        self.energy_consumption = "No Value found"  # kwh/m²
         self.energy_class = "No Value found"
         self.co2_emission = "No Value found"
         self.heating_type = "No Value found"
@@ -73,8 +69,7 @@ class house():
         self.neighbourhood = "No Value found"
         self.flood_zone = "No Value found"
         self.cadastral_income = "No Value found"
-        self.agent = "No Value found"   # personne qui gére la vente sur immoweb
-
+        self.agent = "No Value found"  # personne qui gére la vente sur immoweb
 
         """ Suivit et actualisation des données """
 
@@ -97,4 +92,3 @@ class house():
         self.surface_of_the_plot_of_land = str(None)
         self.number_of_facades = "No Value found"
         self.swimming_pool = "No Value found"
-
