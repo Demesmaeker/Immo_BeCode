@@ -1,3 +1,14 @@
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+
+import time
+import pandas as pd
+import os
+
 def init_webdriver(is_firefox: bool = False) -> webdriver:
     if is_firefox:
         profile = webdriver.FirefoxProfile()
