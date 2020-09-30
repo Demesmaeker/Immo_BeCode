@@ -14,5 +14,4 @@ number_of_pages = number_of_pages.get_attribute('innerHTML')
 
 print(number_of_pages)
 
-
 driver.close()

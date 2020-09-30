@@ -11,6 +11,7 @@ import os
 
 
 def init_webdriver(is_firefox: bool = False) -> webdriver:
+    """ init the web driver with chrome or firefox """
     if is_firefox:
         profile = webdriver.FirefoxProfile()
         # disable pictures
@@ -25,11 +26,14 @@ def init_webdriver(is_firefox: bool = False) -> webdriver:
 
 
 def init_connection(driver: webdriver, url, title: str = None, check_button: bool = False):
+    """
+        init the connection to the url
+        check if a banner (like cookie-banner) block us and click on it if needed
+    """
     driver.get(url)
     if title is not None:
         assert title in driver.title
     if check_button:
-        # take away the popup (only once)
         try:
             element = WebDriverWait(driver, 10).until(
                 EC.presence_of_element_located((By.ID, 'uc-btn-accept-banner'))
@@ -39,7 +43,3 @@ def init_connection(driver: webdriver, url, title: str = None, check_button: boo
                 print("button clicked")
         except Exception as e:
             print(e)
-
-
-def check_number_of_pages(driver):
-    driver.find_elemen
