@@ -116,7 +116,22 @@ class estate():
         self.sold_percentage = "Not found"
         self.units_display_mode = "Not found"
 
-        self.title = "Not found"
+        self.title = "Not found" # c'est quoi ?
+
+        self.certificate = "Not found"
+        self.type_of_sale = "Not found"
+        self.rental = "Not found"
+        self.life_annuity = "Not found"
+        self.has_starting_price = "Not found"
+        self.old_price = "Not found"
+        self.price_per_sqm = "Not found"
+        self.public_sale = "Not found"
+        self.to_build = "Not found"
+        self.vat_type = "Not found"
+
+        self.price_type = "Not found"
+        self.has_360_tour = "Not found"
+
 
         """ Suivit et actualisation des données """
 
@@ -126,7 +141,7 @@ class estate():
 
         """ a classer et trouver """
 
-        self.type_of_sale = "Not found"
+
         self.furnished = str(None)
         self.open_fire = "Not found"
         self.terrace = "Not found"

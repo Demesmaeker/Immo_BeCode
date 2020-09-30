@@ -1,4 +1,4 @@
-from Collect_data.Function import *
+from Function import *
 
 base_url = "https://www.immoweb.be/"
 search_url = "https://www.immoweb.be/fr/recherche/appartement/a-vendre?countries=BE&isALifeAnnuitySale=false&page=1&orderBy=relevance "

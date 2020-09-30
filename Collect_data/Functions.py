@@ -66,7 +66,6 @@ def recuperer_tr_tag(immmoweb_id):
     else:
         return "url not reachable"
 
-pprint.pprint(recuperer_tr_tag(8899851))
 
 def collect_data_1_tr_collect(immmoweb_id, maison):
     """

@@ -1,138 +1,119 @@
 from bs4 import BeautifulSoup
 import requests
 import json
-
+import Functions
 import Data
+import pprint
 
 
-maison = Data.estate()
+
 
 
 url = "https://www.immoweb.be/fr/recherche/appartement/a-vendre?countries=BE&maxPrice=350000&minPrice=250000&orderBy=relevance"
 
 soup = BeautifulSoup(requests.get(url).content, 'html.parser')
 
-print(" 1 ****************************************")
-
-print(soup.find("search-results__header"))
-
-print(" 2 ****************************************")
-
-
 result = soup.find_all('div')
-print(result)
-
-print(" 4 ****************************************")
-
-
-print(soup.find('iw-search')[':results'])
 
 data = json.loads(soup.find('iw-search')[':results'])
 
-for d in data:
-    print(d)
+if Functions.debug:
+    for d in data:
+        print(d)
 
-    url = 'https://www.immoweb.be/en/classified/{}'.format(d['id'])
+        url = 'https://www.immoweb.be/en/classified/{}'.format(d['id'])
 
-    print(url)
-
-print(" 3 ****************************************")
-
+        print(url)
 
 for d in data:
 
+    maison = Data.estate()
 
-    maison.immoweb_id = d["id"]
-    maison.min_price = d["cluster"]["minPrice"]
-    maison.max_price = d["cluster"]["maxPrice"]
-    maison.min_room = d["cluster"]["minRoom"]
-    maison.max_room = d["cluster"]["maxRoom"]
-    maison.min_surface = d["cluster"]["minSurface"]
-    maison.max_surface = d["cluster"]["maxSurface"]
+    maison.immoweb_id = d.get("id", "Not found")
 
-    try:
-        maison.constructor = d["cluster"]["projectInfo"]["constructor"]
-        maison.groupId = d["cluster"]["projectInfo"]["groupId"]
-        maison.phase = d["cluster"]["projectInfo"]["phase"]
-        maison.project_name = d["cluster"]["projectInfo"]["projectName"]
-        maison.delivery_date = d["cluster"]["projectInfo"]["deliveryDate"]
-        maison.sold_percentage = d["cluster"]["projectInfo"]["soldPercentage"]
-        maison.units_display_mode = d["cluster"]["projectInfo"]["unitsDisplayMode"]
-        maison.bedroom_range = d["bedroomRange"]
-        maison.surface_range = d["surfaceRange"]
-        maison.customer_name = d["customerName"]
+    if d.get("cluster", "Not found") != "Not found":
+        maison.min_price = d["cluster"].get("minPrice", "Not found")
+        maison.max_price = d["cluster"].get("maxPrice", "Not found")
+        maison.min_room = d["cluster"].get("minRoom", "Not found")
+        maison.max_room = d["cluster"].get("maxRoom", "Not found")
+        maison.min_surface = d["cluster"].get("minSurface", "Not found")
+        maison.max_surface = d["cluster"].get("maxSurface", "Not found")
 
-    except :
-        pass
+        if d["cluster"].get("projectInfo", "Not found") != "Not found" \
+                and d["cluster"].get("projectInfo", "Not found") is not None:
+            maison.constructor = d["cluster"]["projectInfo"].get("constructor", "Not found")
+            maison.groupId = d["cluster"]["projectInfo"].get("groupId", "Not found")
+            maison.phase = d["cluster"]["projectInfo"].get("phase", "Not found")
+            maison.project_name = d["cluster"]["projectInfo"].get("projectName", "Not found")
+            maison.delivery_date = d["cluster"]["projectInfo"].get("deliveryDate", "Not found")
+            maison.sold_percentage = d["cluster"]["projectInfo"].get("soldPercentage", "Not found")
+            maison.units_display_mode = d["cluster"]["projectInfo"].get("unitsDisplayMode", "Not found")
 
-    maison.type_of_property = d["property"]["type"]
-    maison.subtype_of_property = d["property"]["subtype"]
-    maison.nbr_bedrooms = d["property"]["bedroomCount"]
-    maison.title = d["property"]["title"]
+    maison.bedroom_range = d.get("bedroomRange", "Not found")
+    maison.surface_range = d.get("surfaceRange", "Not found")
+    maison.customer_name = d.get("customerName", "Not found")
 
-    maison.country = d["property"]["location"]["country"]
-    maison.region = d["property"]["location"]["region"]
-    maison.province = d["property"]["location"]["province"]
-    maison.district = d["property"]["location"]["district"]
-    maison.locality = d["property"]["location"]["postalCode"]
-    maison.postal_code = d["property"]["location"]["postalCode"]
-    maison.street_name = d["property"]["location"]["y"]
-    maison.house_number = d["property"]["location"]["y"]
-    maison.house_box = d["property"]["location"]["y"]
-    maison.property_name = d["property"]["location"]["y"]
-    maison.floor = d["property"]["location"]["y"]
-    maison.latitude = d["property"]["location"]["y"]
-    maison.longitude = d["property"]["location"]["y"]
-    maison.approximated = d["property"]["location"]["y"]
-    maison.region_code = d["property"]["location"]["y"]
-    maison.type = d["property"]["location"]["y"]
-    maison.has_sea_view = d["property"]["location"]["y"]
-    maison.points_of_interest = d["property"]["location"]["y"]
-    maison.place_name = d["property"]["location"]["y"]
-    maison.net_habitable_surface = d["property"]["location"]["y"]
-    maison.room_count = d["property"]["location"]["y"]
-    maison.surface_of_the_land = d["property"]["location"]["y"]
+    if d.get("property", "Not found") != "Not found":
+        maison.type_of_property = d["property"].get("type", "Not found")
+        maison.subtype_of_property = d["property"].get("subtype", "Not found")
+        maison.nbr_bedrooms = d["property"].get("bedroomCount", "Not found")
+        maison.title = d["property"].get("title", "Not found")
 
-    d["property"]["location"][y]
+        if d["property"].get("location", "Not found") != "Not found" \
+                and d["property"].get("location", "Not found") is not None:
+            maison.country = d["property"]["location"].get("country", "Not found")
+            maison.region = d["property"]["location"].get("region", "Not found")
+            maison.province = d["property"]["location"].get("province", "Not found")
+            maison.district = d["property"]["location"].get("district", "Not found")
+            maison.locality = d["property"]["location"].get("postalCode", "Not found")
+            maison.postal_code = d["property"]["location"].get("postalCode", "Not found")
+            maison.street_name = d["property"]["location"].get("street", "Not found")
+            maison.house_number = d["property"]["location"].get("number", "Not found")
+            maison.house_box = d["property"]["location"].get("box", "Not found")
+            maison.property_name = d["property"]["location"].get("propertyName", "Not found")
+            maison.floor = d["property"]["location"].get("floor", "Not found")
+            maison.latitude = d["property"]["location"].get("latitude", "Not found")
+            maison.longitude = d["property"]["location"].get("longitude", "Not found")
+            maison.approximated = d["property"]["location"].get("approximated", "Not found")
+            maison.region_code = d["property"]["location"].get("regionCode", "Not found")
+            maison.type = d["property"]["location"].get("type", "Not found")
+            maison.has_sea_view = d["property"]["location"].get("hasSeaView", "Not found")
+            maison.points_of_interest = d["property"]["location"].get("pointsOfInterest", "Not found")
+            maison.place_name = d["property"]["location"].get("placeName", "Not found")
 
+        maison.net_habitable_surface = d["property"].get("netHabitableSurface", "Not found")
+        maison.room_count = d["property"].get("roomCount", "Not found")
+        maison.surface_of_the_land = d["property"].get("landSurface", "Not found")
 
-    print("++++++++++++++++++++++++")
+    if d.get("transaction", "Not found") != "not found":
+        maison.certificate = d["transaction"].get("certificate", "Not found")
+        maison.type_of_sale = d["transaction"].get("type", "Not found")
+        maison.rental = d["transaction"].get("rental", "Not found")
 
-    print("immoweb_id")
-    print(d["id"])
-    print(d.get("cluster").get("minPrice"))
+        if d["transaction"].get("sale", "Not found") != "Not found" \
+                and d["transaction"].get("sale", "Not found") is not None:
+            maison.life_annuity = d["transaction"]["sale"].get("lifeAnnuity", "Not found")
+            maison.has_starting_price = d["transaction"]["sale"].get("hasStartingPrice", "Not found")
+            maison.old_price = d["transaction"]["sale"].get("oldPrice", "Not found")
+            maison.price = d["transaction"]["sale"].get("price", "Not found")
+            maison.price_per_sqm = d["transaction"]["sale"].get("pricePerSqm", "Not found")
+            maison.public_sale = d["transaction"]["sale"].get("publicSale", "Not found")
+            maison.to_build = d["transaction"]["sale"].get("toBuild", "Not found")
+            maison.vat_type = d["transaction"]["sale"].get("vatType", "Not found")
 
-    print("++++++++++++++++++++++++")
+    maison.price_type = d.get("priceType", "Not found")
+    maison.has_360_tour = d.get("has360Tour", "Not found")
 
+    if Functions.debug:
 
-    for f in d:
-        print(f)
-        print(d[f])
+        print("+++++++++++++++++++++++++++++++++++++++++++++++++")
 
-        if f == "cluster":
-            for i in d[f]:
-                print(i)
-                print(d[f][i])
+        remove_not_found = vars(maison).copy()
+        for i in vars(maison):
+            if vars(maison)[i] == "Not found" or vars(maison)[i] is None:
+                del remove_not_found[i]
 
+        pprint.pprint(remove_not_found)
+        """for f in d:
+             pprint.pprint(d[f])"""
 
-                if i == "projectInfo" and d[f][i] != None:
-                    for y in d[f][i]:
-                        print(y)
-                        print(d["cluster"]["projectInfo"][y])
-
-        if f == "property":
-            for i in d[f]:
-                print(i)
-                print(d[f][i])
-
-                if i == "location" and d[f][i] != None:
-                    for y in d[f][i]:
-                        print(y)
-                        print(d["property"]["location"][y])
-
-
-    print("vl price")
-    for t in d["price"]:
-        print(t)
-        print(d["price"][t])
-    print("+++++++++++++++++++++++++++++++++++++++++++++++++")
