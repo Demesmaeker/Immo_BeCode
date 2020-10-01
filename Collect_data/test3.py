@@ -1,67 +1,32 @@
-import re
-import Data
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 
-a = 0
-b = 1
-
-list_function = [ "a = 10", "b = 10"]
-
-for i in list_function:
-    exec(i)
-
-print(a)
-print(b)
-
-rend = "maison.available_date = df[\"Available date\"]", "maison.property_name = df[\"Property name\"]"
-
-patern = "(maison\.)(\w*)"
-for i in rend:
-
-    print(re.search(i,patern))
-
-def get_str_from_req_content(pattern, fct_content):
-    """
-    Get str from getFilestring_from_an exiting request url
-    """
-    if not pattern:
-        return None
-
-    print(str(pattern))
-
-    prog = re.compile(pattern)
-    fstr = prog.search(str(fct_content))
-
-    return fstr
+import time
+import pandas as pd
+import os
 
 
 
-url = "https://www.immoweb.be/fr/annonce/villa/a-vendre/uccle/1180/8892317"
 
-clean_content = rend
+chrome_options = Options()
+chrome_options.add_argument("--headless")
 
-regex = "(maison\.)(\w*)"
+driver = webdriver.Chrome(options=chrome_options)
+driver.get("https://www.immoweb.be/fr/recherche/appartement/a-vendre?countries=BE&isALifeAnnuitySale=false&page=1&orderBy=relevance")
 
-result = get_str_from_req_content(regex, clean_content)
+number_of_pages = driver.find_elements_by_css_selector('div.search-results__header a.pagination__link span.button__label')
 
-detail = get_str_from_req_content(regex, i).group(2)
+print(number_of_pages)
 
-maison = Data.estate()
+number_of_pages = number_of_pages[2]
+number_of_pages = number_of_pages.get_attribute('innerHTML')
 
-print("maison." + detail)
+print(number_of_pages)
 
-truc = "maison." + detail
-print(truc)
-tric = truc + " == \"Not found\""
-print(tric)
-print(bool(exec(tric)))
+driver.close()
 
-if maison.energy_class != "Not found":
-    print("ah bin mince")
-else:
-    print("new")
 
-print(str(result))
-print('str(result.group(1))' )
-print(str(result.group(1)) )
-print('str(result.group(2))' )
-print(str(result.group(2)) )
