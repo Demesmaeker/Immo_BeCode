@@ -12,11 +12,12 @@ import shadow_useragent
 
 url = "https://www.immoweb.be/fr/recherche/appartement/a-vendre?countries=BE&maxPrice=350000&minPrice=250000&orderBy=relevance"
 
-"""data = Functions.recuperer_data_research_page(url)
+data = Functions.recuperer_data_research_page(url)
 
 print(data)
 
-Functions.collect_data_research_page(data)"""
+for d in data:
+    Functions.collect_data_2_research_page(d)
 
 
 

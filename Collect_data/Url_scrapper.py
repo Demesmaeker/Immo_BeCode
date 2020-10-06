@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 import numpy as np
 import csv
-
+import Functions
 import Data
 
 maison = Data.estate()
@@ -25,7 +25,10 @@ def url_scrapper(type_de_bien):
 
     while max < 600000:
 
-        for page in pages:
+        url_for_pages = 'https://www.immoweb.be/fr/recherche/' + type_de_bien + '/a-vendre?countries=BE&minPrice=' \
+                  + str(min) + '&maxPrice=' + str(max) + '&orderBy=relevance'
+
+        for page in Functions.number_of_immoweb_page(url):
 
             print(str(sequences) + ' : ' + str(page))
 
